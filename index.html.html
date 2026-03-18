@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Proposta Oslo Studio — Distribuidora Borges</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #00215d;
+  --red: #ba0c2f;
+  --white: #ffffff;
+  --light: #f8f8f8;
+  --gray: #666666;
+  --light-gray: #f0f0f0;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: #fff; font-family: 'Montserrat', sans-serif; color: #111; overflow-x: hidden; }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 0 48px;
+  overflow: hidden;
+}
+.hero-img {
+  position: absolute; inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&q=80');
+  background-size: cover;
+  background-position: center top;
+  filter: brightness(0.25);
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom,
+    rgba(0,33,93,0.6) 0%,
+    rgba(0,33,93,0.2) 40%,
+    rgba(255,255,255,0.0) 60%,
+    #ffffff 100%
+  );
+}
+.hero-content {
+  position: relative; z-index: 2;
+  padding: 0 24px;
+}
+.oslo-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--navy);
+  padding: 8px 16px; border-radius: 40px;
+  font-size: 10px; letter-spacing: 3px;
+  text-transform: uppercase; color: rgba(255,255,255,0.8);
+  margin-bottom: 24px; font-weight: 600;
+}
+.oslo-dot { width: 6px; height: 6px; background: var(--red); border-radius: 50%; }
+.hero h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900; font-size: 44px;
+  line-height: 1.0; letter-spacing: -1px;
+  margin-bottom: 16px; color: #111;
+}
+.hero h1 .red { color: var(--red); }
+.hero h1 .navy { color: var(--navy); }
+.hero-sub {
+  font-size: 14px; color: var(--gray);
+  line-height: 1.7; font-weight: 400;
+  margin-bottom: 32px;
+}
+.hero-stats {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 10px; margin-bottom: 32px;
+}
+.stat {
+  background: var(--light);
+  border: 1px solid #e8e8e8;
+  border-radius: 12px; padding: 16px 10px; text-align: center;
+}
+.stat-n {
+  font-weight: 900; font-size: 26px;
+  color: var(--navy); line-height: 1;
+}
+.stat-l {
+  font-size: 9px; color: var(--gray);
+  margin-top: 4px; line-height: 1.3;
+  letter-spacing: 0.5px; font-weight: 500;
+  text-transform: uppercase;
+}
+.scroll-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--navy); color: #fff;
+  padding: 14px 24px; border-radius: 50px;
+  font-size: 12px; letter-spacing: 1px;
+  text-transform: uppercase; text-decoration: none;
+  font-weight: 700;
+}
+
+/* ── SECTIONS ── */
+.section { padding: 56px 24px; }
+.section.gray { background: var(--light); }
+.section.navy { background: var(--navy); }
+.section-tag {
+  font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--red); margin-bottom: 8px; font-weight: 700;
+}
+.section-tag.white { color: rgba(255,255,255,0.5); }
+.section-title {
+  font-weight: 900; font-size: 30px;
+  line-height: 1.1; margin-bottom: 8px; color: #111;
+}
+.section-title.white { color: #fff; }
+.section-title .dim { color: #ccc; }
+.section-title .red { color: var(--red); }
+.section-sub {
+  font-size: 14px; color: var(--gray);
+  line-height: 1.7; font-weight: 400;
+  margin-bottom: 28px;
+}
+.section-sub.white { color: rgba(255,255,255,0.6); }
+.divider { width: 36px; height: 3px; background: var(--red); margin-bottom: 28px; border-radius: 2px; }
+
+/* ── DOR ── */
+.dor-cards { display: flex; flex-direction: column; gap: 12px; }
+.dor-card {
+  background: #fff; border-radius: 14px;
+  padding: 20px; display: flex; gap: 16px;
+  align-items: flex-start; border: 1px solid #e8e8e8;
+  border-left: 4px solid var(--red);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+.dor-icon { font-size: 26px; flex-shrink: 0; }
+.dor-card h4 {
+  font-size: 14px; font-weight: 700;
+  color: #111; margin-bottom: 6px;
+}
+.dor-card p {
+  font-size: 13px; color: var(--gray);
+  line-height: 1.6; font-weight: 400;
+}
+
+/* ── PLANOS ── */
+.plano {
+  border-radius: 20px; overflow: hidden;
+  margin-bottom: 20px;
+  border: 1px solid #e8e8e8;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+.plano-header {
+  position: relative; overflow: hidden;
+  height: 160px;
+}
+.plano-header img {
+  width: 100%; height: 100%;
+  object-fit: cover; filter: brightness(0.3);
+}
+.plano-header-overlay {
+  position: absolute; inset: 0;
+  padding: 20px;
+  display: flex; flex-direction: column;
+  justify-content: flex-end;
+  background: linear-gradient(to top, rgba(0,33,93,0.95), rgba(0,33,93,0.3));
+}
+.plano-tag {
+  font-size: 9px; letter-spacing: 3px;
+  text-transform: uppercase; color: rgba(255,255,255,0.5);
+  margin-bottom: 4px; font-weight: 600;
+}
+.plano-nome {
+  font-weight: 900; font-size: 28px;
+  color: #fff; line-height: 1;
+}
+.plano-body { background: #fff; padding: 24px; }
+.plano-desc {
+  font-size: 13px; color: var(--gray);
+  line-height: 1.7; margin-bottom: 20px;
+  font-weight: 400;
+}
+.plano-items { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+.plano-item {
+  display: flex; gap: 10px;
+  font-size: 13px; color: #333;
+  align-items: flex-start; font-weight: 500;
+}
+.plano-item-icon { color: var(--red); font-weight: 900; flex-shrink: 0; font-size: 14px; }
+.plano-item-text { line-height: 1.5; }
+.plano-item-sub {
+  font-size: 11px; color: var(--gray);
+  font-weight: 400; margin-top: 2px;
+}
+.plano-price-box {
+  background: var(--light); border-radius: 12px;
+  padding: 16px; display: flex;
+  justify-content: space-between; align-items: center;
+  border: 1px solid #e8e8e8;
+}
+.plano-price-label {
+  font-size: 10px; color: var(--gray);
+  letter-spacing: 1px; text-transform: uppercase;
+  font-weight: 600; margin-bottom: 4px;
+}
+.plano-price {
+  font-weight: 900; font-size: 24px; color: var(--navy);
+}
+.plano-price small {
+  font-size: 12px; color: var(--gray);
+  font-weight: 400;
+}
+
+/* DESTAQUE */
+.plano.destaque {
+  border-color: var(--navy);
+  box-shadow: 0 8px 32px rgba(0,33,93,0.15);
+}
+.plano.destaque .plano-body { background: var(--navy); }
+.plano.destaque .plano-desc { color: rgba(255,255,255,0.6); }
+.plano.destaque .plano-item { color: rgba(255,255,255,0.9); }
+.plano.destaque .plano-item-sub { color: rgba(255,255,255,0.4); }
+.plano.destaque .plano-price-box {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.1);
+}
+.plano.destaque .plano-price-label { color: rgba(255,255,255,0.4); }
+.plano.destaque .plano-price { color: #fff; }
+.plano.destaque .plano-price small { color: rgba(255,255,255,0.4); }
+.badge-destaque {
+  position: absolute; top: 16px; right: 16px;
+  background: var(--red); color: #fff;
+  font-size: 8px; letter-spacing: 2px;
+  text-transform: uppercase; padding: 5px 12px;
+  border-radius: 20px; font-weight: 700; z-index: 2;
+}
+
+/* ── PACOTES CONTATOS ── */
+.packs { display: flex; flex-direction: column; gap: 10px; margin-bottom: 8px; }
+.pack {
+  background: #fff; border-radius: 14px;
+  padding: 18px; display: flex;
+  justify-content: space-between; align-items: center;
+  border: 1px solid #e8e8e8;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.pack.popular {
+  border-color: var(--navy);
+  background: var(--light);
+  box-shadow: 0 4px 16px rgba(0,33,93,0.1);
+}
+.pack-badge {
+  font-size: 8px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--red);
+  font-weight: 700; margin-bottom: 4px;
+}
+.pack-info h4 {
+  font-size: 15px; font-weight: 700; color: #111;
+}
+.pack-info p {
+  font-size: 12px; color: var(--gray);
+  margin-top: 3px; font-weight: 400; line-height: 1.4;
+}
+.pack-price {
+  font-weight: 900; font-size: 20px; color: var(--navy);
+  text-align: right;
+}
+.pack-price small {
+  display: block; font-size: 10px;
+  color: var(--gray); font-weight: 400;
+}
+
+/* ── OSLO ── */
+.cred-list { display: flex; flex-direction: column; gap: 12px; }
+.cred-item {
+  background: rgba(255,255,255,0.06);
+  border-radius: 12px; padding: 16px;
+  display: flex; gap: 14px; align-items: flex-start;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.cred-item-icon { font-size: 22px; flex-shrink: 0; }
+.cred-item-text { }
+.cred-item-text strong {
+  display: block; font-size: 14px;
+  color: #fff; font-weight: 700; margin-bottom: 4px;
+}
+.cred-item-text p {
+  font-size: 12px; color: rgba(255,255,255,0.5);
+  line-height: 1.5; font-weight: 400;
+}
+
+/* ── CTA ── */
+.cta-section {
+  background: var(--light); padding: 56px 24px;
+  text-align: center;
+}
+.cta-section h2 {
+  font-weight: 900; font-size: 32px;
+  color: #111; line-height: 1.1;
+  margin-bottom: 12px;
+}
+.cta-section h2 span { color: var(--red); }
+.cta-section p {
+  font-size: 14px; color: var(--gray);
+  line-height: 1.7; margin-bottom: 28px;
+  font-weight: 400;
+}
+.cta-btn {
+  display: flex; align-items: center;
+  justify-content: center; gap: 10px;
+  background: #25D366; color: #fff;
+  border-radius: 50px; padding: 16px 28px;
+  font-size: 14px; font-weight: 700;
+  text-decoration: none; margin-bottom: 12px;
+  box-shadow: 0 4px 16px rgba(37,211,102,0.3);
+}
+.cta-btn-ghost {
+  display: flex; align-items: center;
+  justify-content: center; gap: 10px;
+  background: transparent; color: var(--navy);
+  border: 2px solid var(--navy); border-radius: 50px;
+  padding: 14px 28px; font-size: 13px;
+  text-decoration: none; font-weight: 600;
+}
+.cta-info {
+  margin-top: 28px; padding-top: 24px;
+  border-top: 1px solid #e8e8e8;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.cta-info-item {
+  font-size: 12px; color: var(--gray);
+  display: flex; gap: 8px; align-items: center;
+  justify-content: center; font-weight: 500;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--navy); padding: 28px 24px;
+  text-align: center;
+}
+.footer-logo {
+  font-weight: 900; font-size: 16px;
+  letter-spacing: 3px; color: rgba(255,255,255,0.3);
+  margin-bottom: 6px; text-transform: uppercase;
+}
+.footer-logo span { color: var(--red); }
+.footer-text {
+  font-size: 11px; color: rgba(255,255,255,0.2);
+  line-height: 1.6; font-weight: 400;
+}
+
+/* ANIMATIONS */
+.fade-in {
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-img"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="oslo-badge"><div class="oslo-dot"></div>Oslo Studio · Proposta Exclusiva</div>
+    <h1>
+      <span class="navy">Distribuidora</span><br>
+      <span class="navy">Borges</span><br>
+      <span class="red">Crescimento</span><br>
+      Digital
+    </h1>
+    <p class="hero-sub">25 anos construindo uma das distribuidoras mais sólidas da região. Agora é hora de levar o nome da Borges pra onde o mercado está indo.</p>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-n">25</div>
+        <div class="stat-l">Anos no mercado</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">500</div>
+        <div class="stat-l">Clientes fixos</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">+∞</div>
+        <div class="stat-l">Potencial digital</div>
+      </div>
+    </div>
+    <a href="#dor" class="scroll-btn">Ver proposta ↓</a>
+  </div>
+</section>
+
+<!-- DOR -->
+<section class="section gray" id="dor">
+  <div class="fade-in">
+    <div class="section-tag">O cenário atual</div>
+    <h2 class="section-title">O que está<br><span class="red">travando</span><br>o crescimento</h2>
+    <div class="divider"></div>
+    <p class="section-sub">A Borges tem produto, estrutura e clientela consolidada. O que falta é uma presença digital que acompanhe o tamanho da empresa — e ferramentas para chegar em quem ainda não conhece vocês.</p>
+  </div>
+  <div class="dor-cards">
+    <div class="dor-card fade-in">
+      <div class="dor-icon">📍</div>
+      <div>
+        <h4>Expansão para Bauru está travada</h4>
+        <p>O interesse em crescer para outras cidades é real — mas sem uma ferramenta digital para chegar em novos clientes de forma organizada, a expansão depende só do vendedor batendo de porta em porta. Isso é lento e caro.</p>
+      </div>
+    </div>
+    <div class="dor-card fade-in">
+      <div class="dor-icon">📱</div>
+      <div>
+        <h4>Instagram existe mas não gera pedido</h4>
+        <p>O perfil está ativo, mas sem uma estratégia voltada para revendedores — donos de mercadinho, padaria e conveniência — o Instagram não converte. Falta conteúdo que faz o cliente ligar ou mandar mensagem pedindo preço.</p>
+      </div>
+    </div>
+    <div class="dor-card fade-in">
+      <div class="dor-icon">🛒</div>
+      <div>
+        <h4>Tentativa de venda online não decolou</h4>
+        <p>A experiência anterior com e-commerce não funcionou por falta de estratégia e público certo — não por falta de produto. Com a abordagem correta e o canal certo, isso muda.</p>
+      </div>
+    </div>
+    <div class="dor-card fade-in">
+      <div class="dor-icon">📋</div>
+      <div>
+        <h4>Vendedor sem apoio digital</h4>
+        <p>O catálogo de produtos ainda é manual ou verbal. Sem um site ou catálogo online, o vendedor perde tempo explicando o que tem em estoque e não consegue fechar pedido na hora.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANOS -->
+<section class="section" id="planos">
+  <div class="fade-in">
+    <div class="section-tag">A solução</div>
+    <h2 class="section-title">3 planos para<br><span class="red">você escolher</span></h2>
+    <div class="divider"></div>
+    <p class="section-sub">Cada plano foi pensado para resolver uma parte do desafio da Borges. Você começa pelo que faz mais sentido agora e cresce conforme o resultado aparecer.</p>
+  </div>
+
+  <!-- PLANO 1 -->
+  <div class="plano fade-in">
+    <div class="plano-header">
+      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80" alt="">
+      <div class="plano-header-overlay">
+        <div class="plano-tag">Plano 01 — Fundação</div>
+        <div class="plano-nome">Presença Digital</div>
+      </div>
+    </div>
+    <div class="plano-body">
+      <p class="plano-desc">A Borges existe há 25 anos mas não aparece no Google. Este plano cria a base digital que toda empresa séria precisa ter — um site profissional que funciona como cartão de visita, catálogo de produtos e canal de pedidos ao mesmo tempo.</p>
+      <div class="plano-items">
+        <div class="plano-item">
+          <div class="plano-item-icon">✓</div>
+          <div>
+            <div class="plano-item-text">Site profissional com todos os produtos e preços</div>
+            <div class="plano-item-sub">O cliente acessa pelo celular, vê o catálogo completo e manda pedido direto pelo WhatsApp — sem precisar ligar ou esperar o vendedor passar</div>
+          </div>
+        </div>
+        <div class="plano-item">
+          <div class="plano-item-icon">✓</div>
+          <div>
+            <div class="plano-item-text">Ferramenta de apoio para o vendedor</div>
+            <div class="plano-item-sub">O vendedor abre o site no celular na frente do cliente e mostra o catálogo atualizado — profissional e rápido</div>
+          </div>
+        </div>
+        <div class="plano-item">
+          <div class="plano-item-icon">✓</div>
+          <div>
+            <div class="plano-item-text">A Borges aparece no Google</div>
+            <div class="plano-item-sub">Quando alguém buscar "distribuidora de doces em Botucatu" ou "atacado de doces Bauru" — a Borges aparece</div>
+          </div>
+        </div>
+        <div class="plano-item">
+          <div class="plano-item-icon">✓</div>
+          <div>
+            <div class="plano-item-text">Identidade visual profissional</div>
+            <div class="plano-item-sub">Logo, cores e visual padronizado — a empresa passa a parecer do tamanho que realmente é</div>
+          </div>
+        </div>
+      </div>
+      <div class="plano-price-box">
+        <div>
+          <div class="plano-price-label">Investimento único</div>
+          <div class="plano-price">R$ 2.500</div>
+        </div>
+        <div style="text-align:right">
+          <div class="plano-price-label">Prazo</div>
+          <div class="plano-price" style="font-size:16px;color:#666">15 dias úteis</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PLANO 2 DESTAQUE -->
+  <div class="plano destaque fade-in">
+    <div class="badge-destaque">Mais escolhido</div>
+    <div class="plano-header">
+      <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80" alt="">
+      <div class="plano-header-overlay">
+        <div class="plano-tag">Plano 02 — Crescimento</div>
+        <div class="plano-nome">Expansão Regional</div>
+      </div>
+    </div>
+    <div class="plano-body">
+      <p class="plano-desc">Site profissional mais uma carteira de novos clientes todo mês e Instagram que funciona de verdade para revendedores. Ideal para quem quer chegar em Bauru e crescer de forma organizada e previsível.</p>
+      <div class="plano-items">
+        <div class="plano-item">
+          <div class="plano-item-icon">✓</div>
+          <div>
+            <div class="plano-item-text">Tudo do Plano Presença Digital</div>
+            <div class="plano-item-sub">Site completo, Google e identidade visual inclusos</div>
+          </div>
+        </div>
+        <div class="plano-item">
+          <div class="plano-item-icon">✓</div>
+          <div>
+            <div class="plano-item-text">100 novos contatos de clientes por mês</div>
+            <div class="plano-item-sub">Todo mês entregamos uma lista com 100 donos de mercadinho, padaria e conveniência de Botucatu, Bauru ou qualquer cidade que vocês quiserem entrar — com nome, endereço e WhatsApp do responsável. O vendedor aborda direto, sem precisar garimpar.</div>
+          </div>
+        </div>
+        <div class="plano-item">
+          <div class="plano-item-icon">✓</div>
+          <div>
+            <div class="plano-item-text">Gestão do Instagram focada em revendedores</div>
+            <div class="plano-item-sub">Posts diários com oferta do dia, produto em destaque, novidade no estoque e promoção da semana — tudo pensado para fazer o dono de mercadinho ver e pedir. Igual ao que grandes atacadistas fazem nas redes sociais.</div>
+          </div>
+        </div>
+        <div class="plano-item">
+          <div class="plano-item-icon">✓</div>
+          <div>
+            <div class="plano-item-text">Relatório mensal de resultado</div>
+            <div class="plano-item-sub">Todo mês você recebe um relatório simples mostrando quantas pessoas viram as publicações, quantos novos seguidores chegaram e quantos clientes foram contactados</div>
+          </div>
+        </div>
+        <div class="plano-item">
+          <div class="plano-item-icon">✓</div>
+          <div>
+            <div class="plano-item-text">Suporte direto via WhatsApp</div>
+            <div class="plano-item-sub">Qualquer dúvida ou ajuste, a gente responde direto — sem burocracia</div>
+          </div>
+        </div>
+      </div>
+      <div class="plano-price-box">
+        <div>
+          <div class="plano-price-label">Setup inicial</div>
+          <div class="plano-price">R$ 2.500</div>
+        </div>
+        <div style="text-align:right">
+          <div class="plano-price-label">Mensalidade</div>
+          <div class="plano-price">R$ 1.800<small>/mês</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PLANO 3 -->
+  <div class="plano fade-in">
+    <div class="plano-header">
+      <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600&q=80" alt="">
+      <div class="plano-header-overlay">
+        <div class="plano-tag">Plano 03 — Liderança</div>
+        <div class="plano-nome">Nacional</div>
+      </div>
+    </div>
+    <div class="plano-body">
+      <p class="plano-desc">Para quem quer dominar o mercado regional e começar a expansão nacional. Inclui um assistente virtual no WhatsApp que trabalha 24 horas por dia respondendo clientes, enviando catálogo e recuperando quem parou de comprar — sem precisar de funcionário extra.</p>
+      <div class="plano-items">
+        <div class="plano-item">
+          <div class="plano-item-icon">✓</div>
+          <div>
+            <div class="plano-item-text">Tudo do Plano Expansão Regional</div>
+            <div class="plano-item-sub">Site, contatos mensais, Instagram e relatório inclusos</div>
+          </div>
+        </div>
+        <div class="plano-item">
+          <div class="plano-item-icon">✓</div>
+          <div>
+            <div class="plano-item-text">200 novos contatos de clientes por mês</div>
+            <div class="plano-item-sub">O dobro de contatos — cobrindo mais cidades e segmentos como buffets, cantinas escolares e lojas de festa</div>
+          </div>
+        </div>
+        <div class="plano-item">
+          <div class="plano-item-icon">✓</div>
+          <div>
+            <div class="plano-item-text">Assistente virtual no WhatsApp — 24 horas por dia</div>
+            <div class="plano-item-sub">Quando um cliente manda mensagem fora do horário comercial, o assistente responde automaticamente, envia o catálogo de produtos, informa preços e horários de entrega. Nenhum pedido perdido por falta de resposta. Clientes que pararam de comprar recebem uma mensagem automática de reativação todo mês.</div>
+          </div>
+        </div>
+        <div class="plano-item">
+          <div class="plano-item-icon">✓</div>
+          <div>
+            <div class="plano-item-text">Anúncios no Google gerenciados</div>
+            <div class="plano-item-sub">Quando alguém busca "atacado de doces" em Botucatu, Bauru ou região — a Borges aparece em primeiro lugar. Mais visibilidade, mais pedido.</div>
+          </div>
+        </div>
+        <div class="plano-item">
+          <div class="plano-item-icon">✓</div>
+          <div>
+            <div class="plano-item-text">Estratégia de expansão para novas cidades</div>
+            <div class="plano-item-sub">Planejamento mensal de quais cidades atacar, quais segmentos priorizar e como posicionar a Borges em cada mercado novo</div>
+          </div>
+        </div>
+      </div>
+      <div class="plano-price-box">
+        <div>
+          <div class="plano-price-label">Setup inicial</div>
+          <div class="plano-price">R$ 2.500</div>
+        </div>
+        <div style="text-align:right">
+          <div class="plano-price-label">Mensalidade</div>
+          <div class="plano-price">R$ 3.200<small>/mês</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATOS AVULSOS -->
+<section class="section gray" id="contatos">
+  <div class="fade-in">
+    <div class="section-tag">Serviço avulso</div>
+    <h2 class="section-title">Precisa de mais<br><span class="red">clientes agora?</span></h2>
+    <div class="divider"></div>
+    <p class="section-sub">Sem precisar assinar um plano — a gente entrega uma lista de contatos de donos de mercadinho, padaria e conveniência prontos para receber uma proposta do vendedor de vocês. Cada contato inclui nome da empresa, endereço completo e WhatsApp do responsável. Entrega em até 5 dias úteis.</p>
+  </div>
+  <div class="packs">
+    <div class="pack fade-in">
+      <div class="pack-info">
+        <h4>50 contatos</h4>
+        <p>Ideal para testar uma cidade nova como Bauru</p>
+      </div>
+      <div class="pack-price">R$ 450<small>entrega única</small></div>
+    </div>
+    <div class="pack popular fade-in">
+      <div class="pack-info">
+        <div class="pack-badge">Mais pedido</div>
+        <h4>100 contatos</h4>
+        <p>Botucatu completo ou qualquer cidade da região</p>
+      </div>
+      <div class="pack-price">R$ 800<small>entrega única</small></div>
+    </div>
+    <div class="pack fade-in">
+      <div class="pack-info">
+        <h4>200 contatos</h4>
+        <p>Expansão regional completa — várias cidades</p>
+      </div>
+      <div class="pack-price">R$ 1.400<small>entrega única</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- OSLO CREDENCIAL -->
+<section class="section navy" id="oslo">
+  <div class="fade-in">
+    <div class="section-tag white">Quem somos</div>
+    <h2 class="section-title white">Oslo Studio —<br><span class="dim">nascemos no</span><br>esporte.<br>Crescemos em<br>resultado.</h2>
+    <div class="divider"></div>
+    <p class="section-sub white">Estúdio de estratégia digital com sede em São Paulo e unidade em Botucatu. Trabalhamos com empresas que levam o crescimento a sério — desde grandes projetos no futebol profissional até distribuidoras e indústrias do interior paulista.</p>
+  </div>
+  <div class="cred-list">
+    <div class="cred-item fade-in">
+      <div class="cred-item-icon">⚽</div>
+      <div class="cred-item-text">
+        <strong>Futebol profissional</strong>
+        <p>Projetos de conteúdo e estratégia digital no Campeonato Carioca e para clubes de grande expressão nacional</p>
+      </div>
+    </div>
+    <div class="cred-item fade-in">
+      <div class="cred-item-icon">🎵</div>
+      <div class="cred-item-text">
+        <strong>Maior canal de música regional do YouTube</strong>
+        <p>Gestão de conteúdo e crescimento de audiência para um dos maiores canais de entretenimento do Brasil</p>
+      </div>
+    </div>
+    <div class="cred-item fade-in">
+      <div class="cred-item-icon">👔</div>
+      <div class="cred-item-text">
+        <strong>Moda masculina premium</strong>
+        <p>Lançamento de marca do zero — identidade visual, conteúdo digital e estratégia de crescimento</p>
+      </div>
+    </div>
+    <div class="cred-item fade-in">
+      <div class="cred-item-icon">🏭</div>
+      <div class="cred-item-text">
+        <strong>Empresas do interior de São Paulo</strong>
+        <p>Indústrias e distribuidoras regionais que precisavam de presença digital e crescimento organizado</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contato">
+  <div class="fade-in">
+    <div class="section-tag">Próximo passo</div>
+    <h2>Vamos crescer <span>juntos?</span></h2>
+    <p>Escolha o plano que faz mais sentido agora para a Borges. Sem contrato de fidelidade no primeiro mês — você vê o resultado antes de se comprometer a longo prazo.</p>
+    <a href="https://wa.me/5547963081590?text=Oi%20Luana!%20Vi%20a%20proposta%20da%20Oslo%20e%20quero%20conversar%20sobre%20os%20planos%20para%20a%20Borges." class="cta-btn">
+      📲 Falar agora no WhatsApp
+    </a>
+    <a href="mailto:operations@oslostudio.site" class="cta-btn-ghost">
+      ✉️ operations@oslostudio.site
+    </a>
+    <div class="cta-info">
+      <div class="cta-info-item">📍 Sede: Pinheiros, São Paulo/SP</div>
+      <div class="cta-info-item">📍 Unidade: Botucatu, SP</div>
+      <div class="cta-info-item">🌐 oslostudio.site</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">OSLO<span>.</span>STUDIO</div>
+  <div class="footer-text">
+    Oslo Studio Design LTDA · CNPJ 64.765.889/0001-80<br>
+    Pinheiros, São Paulo/SP · hello@oslostudio.site
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
